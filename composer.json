@@ -1,0 +1,27 @@
+{
+    "name": "patrickquijano/laravel-migration",
+    "description": "This Laravel package provides extended functionalities by overriding core Laravel migration classes.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LaravelMigration\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelMigration\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patrick Quijano",
+            "email": "6316829+patrickquijano@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.3",
+        "illuminate/support": "^11.10"
+    }
+}
