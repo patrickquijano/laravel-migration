@@ -22,6 +22,68 @@ class BlueprintTest extends AbstractTestCase
     }
 
     #[DataProvider('tableNamesProvider')]
+    public function test_date_time_method_returns_a_date_time_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $columnName = fake()->word();
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'dateTime',
+            'name' => $columnName,
+            'precision' => 6,
+        ]);
+        // Act
+        $actualColumn = $blueprint->dateTime($columnName);
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_date_time_tz_method_returns_a_date_time_tz_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $columnName = fake()->word();
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'dateTimeTz',
+            'name' => $columnName,
+            'precision' => 6,
+        ]);
+        // Act
+        $actualColumn = $blueprint->dateTimeTz($columnName);
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_datetimes_method_returns_a_2_nullable_date_time_columns_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $expectedColumns = [
+            new ColumnDefinition([
+                'type' => 'dateTime',
+                'name' => 'created_at',
+                'precision' => 6,
+                'nullable' => true,
+            ]),
+            new ColumnDefinition([
+                'type' => 'dateTime',
+                'name' => 'updated_at',
+                'precision' => 6,
+                'nullable' => true,
+            ]),
+        ];
+        // Act
+        $blueprint->datetimes();
+        // Assert
+        $this->assertEquals($expectedColumns, $blueprint->getColumns());
+    }
+
+    #[DataProvider('tableNamesProvider')]
     public function test_nullable_numeric_morphs_method_a_returns_2_nullable_columns_with_string_and_big_integer_types_and_2_indexes(string $tableName): void
     {
         // Arrange
@@ -210,6 +272,96 @@ class BlueprintTest extends AbstractTestCase
         // Assert
         $this->assertEquals($expectedColumns, $blueprint->getColumns());
         $this->assertEquals($expectedCommands, $blueprint->getCommands());
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_soft_deletes_datetime_method_returns_a_nullable_date_time_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'dateTime',
+            'name' => 'deleted_at',
+            'precision' => 6,
+            'nullable' => true,
+        ]);
+        // Act
+        $actualColumn = $blueprint->softDeletesDatetime();
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_soft_deletes_method_returns_a_nullable_timestamp_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'timestamp',
+            'name' => 'deleted_at',
+            'precision' => 6,
+            'nullable' => true,
+        ]);
+        // Act
+        $actualColumn = $blueprint->softDeletes();
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_soft_deletes_tz_method_returns_a_nullable_timestamp_tz_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'timestampTz',
+            'name' => 'deleted_at',
+            'precision' => 6,
+            'nullable' => true,
+        ]);
+        // Act
+        $actualColumn = $blueprint->softDeletesTz();
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_time_method_returns_a_time_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $columnName = fake()->word();
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'time',
+            'name' => $columnName,
+            'precision' => 6,
+        ]);
+        // Act
+        $actualColumn = $blueprint->time($columnName);
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
+    }
+
+    #[DataProvider('tableNamesProvider')]
+    public function test_time_tz_method_returns_a_time_tz_column_with_6_precision(string $tableName): void
+    {
+        // Arrange
+        $blueprint = new Blueprint($tableName);
+        $tableName = Str::replace('.', '_', $tableName);
+        $columnName = fake()->word();
+        $expectedColumn = new ColumnDefinition([
+            'type' => 'timeTz',
+            'name' => $columnName,
+            'precision' => 6,
+        ]);
+        // Act
+        $actualColumn = $blueprint->timeTz($columnName);
+        // Assert
+        $this->assertEquals($expectedColumn, $actualColumn);
     }
 
     #[DataProvider('tableNamesProvider')]

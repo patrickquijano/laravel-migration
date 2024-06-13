@@ -8,6 +8,21 @@ use Illuminate\Database\Schema\Blueprint as AbstractBlueprint;
 
 class Blueprint extends AbstractBlueprint
 {
+    public function dateTime($column, $precision = 6)
+    {
+        return parent::dateTime($column, $precision);
+    }
+
+    public function datetimes($precision = 6)
+    {
+        parent::datetimes($precision);
+    }
+
+    public function dateTimeTz($column, $precision = 6)
+    {
+        return parent::dateTimeTz($column, $precision);
+    }
+
     public function nullableNumericMorphs($name, $indexName = null)
     {
         parent::nullableNumericMorphs($name, $indexName);
@@ -32,6 +47,26 @@ class Blueprint extends AbstractBlueprint
         $this->index(["{$name}_id", "{$name}_type"]);
     }
 
+    public function softDeletes($column = 'deleted_at', $precision = 6)
+    {
+        return parent::softDeletes($column, $precision);
+    }
+
+    public function softDeletesDatetime($column = 'deleted_at', $precision = 6)
+    {
+        return parent::softDeletesDatetime($column, $precision);
+    }
+
+    public function softDeletesTz($column = 'deleted_at', $precision = 6)
+    {
+        return parent::softDeletesTz($column, $precision);
+    }
+
+    public function time($column, $precision = 6)
+    {
+        return parent::time($column, $precision);
+    }
+
     public function timestamp($column, $precision = 6)
     {
         return parent::timestamp($column, $precision);
@@ -50,6 +85,11 @@ class Blueprint extends AbstractBlueprint
     public function timestampTz($column, $precision = 6)
     {
         return parent::timestampTz($column, $precision);
+    }
+
+    public function timeTz($column, $precision = 6)
+    {
+        return parent::timeTz($column, $precision);
     }
 
     public function ulidId($column = 'id')
