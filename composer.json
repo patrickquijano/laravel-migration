@@ -19,16 +19,31 @@
             "email": "6316829+patrickquijano@users.noreply.github.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelMigration\\Providers\\LaravelMigrationServiceProvider"
+            ],
+            "aliases": {
+                "Schema": "LaravelMigration\\Support\\Facades\\Schema"
+            }
+        }
+    },
     "minimum-stability": "stable",
     "require": {
         "php": "^8.3",
-        "illuminate/support": "^11.10"
+        "illuminate/support": "^11.10",
+        "illuminate/database": "^11.10"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.58",
-        "laravel/pint": "^1.16"
+        "laravel/pint": "^1.16",
+        "orchestra/testbench": "^9.1",
+        "nunomaduro/collision": "^8.1"
     },
     "scripts": {
-        "pint": "@php vendor/bin/pint"
+        "pint": "@php vendor/bin/pint",
+        "unit-test": "@php vendor/bin/testbench package:test --testsuite=Unit",
+        "unit-test-coverage": "@php vendor/bin/testbench package:test --coverage --testsuite=Unit"
     }
 }
