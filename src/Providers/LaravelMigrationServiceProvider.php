@@ -15,7 +15,7 @@ class LaravelMigrationServiceProvider extends AbstractServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([__DIR__.'/../stubs' => base_path('stubs')], 'laravel-migration-stubs');
+        $this->publishes([__DIR__.'/../../stubs' => base_path('stubs')], 'laravel-migration-stubs');
     }
 
     /**
