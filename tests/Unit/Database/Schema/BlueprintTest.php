@@ -105,26 +105,29 @@ class BlueprintTest extends AbstractTestCase
                 'nullable' => true,
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->nullableNumericMorphs($columnName);
         // Assert
@@ -153,26 +156,29 @@ class BlueprintTest extends AbstractTestCase
                 'nullable' => true,
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->nullableUlidMorphs($columnName);
         // Assert
@@ -200,26 +206,29 @@ class BlueprintTest extends AbstractTestCase
                 'nullable' => true,
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->nullableUuidMorphs($columnName);
         // Assert
@@ -247,26 +256,29 @@ class BlueprintTest extends AbstractTestCase
                 'unsigned' => true,
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->numericMorphs($columnName);
         // Assert
@@ -489,26 +501,29 @@ class BlueprintTest extends AbstractTestCase
                 'length' => 26,
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->ulidMorphs($columnName);
         // Assert
@@ -551,26 +566,29 @@ class BlueprintTest extends AbstractTestCase
                 'name' => $columnName.'_id',
             ]),
         ];
-        $expectedCommands = [
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
-                'columns' => [
-                    $columnName.'_type',
-                    $columnName.'_id',
-                ],
-                'algorithm' => null,
-            ]),
-            new Fluent([
-                'name' => 'index',
-                'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
-                'columns' => [
-                    $columnName.'_id',
-                    $columnName.'_type',
-                ],
-                'algorithm' => null,
-            ]),
-        ];
+        $expectedCommands = array_merge(
+            $expectedColumns,
+            [
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_type_'.$columnName.'_id',
+                    'columns' => [
+                        $columnName.'_type',
+                        $columnName.'_id',
+                    ],
+                    'algorithm' => null,
+                ]),
+                new Fluent([
+                    'name' => 'index',
+                    'index' => 'ix_'.$tableName.'_'.$columnName.'_id_'.$columnName.'_type',
+                    'columns' => [
+                        $columnName.'_id',
+                        $columnName.'_type',
+                    ],
+                    'algorithm' => null,
+                ]),
+            ]
+        );
         // Act
         $blueprint->uuidMorphs($columnName);
         // Assert
